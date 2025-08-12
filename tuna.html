@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kariyer Platformu</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d2f1f;
+    color: white;
+    scroll-behavior: smooth;
+  }
+  nav {
+    background-color: #0b2418;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  nav ul li a:hover {
+    color: #00ff88;
+  }
+  section {
+    padding-top: 80px;
+  }
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 120px 20px 50px;
+    background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    color: #d9ffe1;
+    border-bottom: 4px solid #00cc6a;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+    border-radius: 0 0 20px 20px;
+  }
+  .hero > * {
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px #00ff88aa;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 6px #00ff8855;
+  }
+  .btn {
+    background-color: #00ff88;
+    color: black;
+    padding: 12px 26px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px #00ff88bb;
+  }
+  .btn:hover {
+    background-color: #00cc6a;
+    box-shadow: 0 0 30px #00cc6a99;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px 20px 60px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .grid-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3);
+    transition: transform 0.3s ease;
+  }
+  .grid-container img:hover {
+    transform: scale(1.04);
+  }
+  .about {
+    max-width: 900px;
+    margin: 70px auto 100px;
+    padding: 30px 25px;
+    background-color: #122e22;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+    line-height: 1.6;
+  }
+  .about h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #a1ffce;
+    text-shadow: 0 0 4px #00ff88aa;
+  }
+  .about p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+  }
+  .content-section {
+    display: flex;
+    max-width: 900px;
+    margin: 80px auto;
+    gap: 40px;
+    align-items: center;
+    padding: 30px 25px;
+    border-radius: 12px;
+    background-color: #16492a;
+    box-shadow: 0 0 18px rgba(0, 255, 136, 0.2);
+  }
+  .content-section img {
+    width: 48%;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 0 10px #00ff88cc;
+    transition: transform 0.3s ease;
+  }
+  .content-section img:hover {
+    transform: scale(1.04);
+  }
+  .content-text {
+    width: 52%;
+  }
+  .content-text h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #a1ffce;
+    text-shadow: 0 0 5px #00ff88bb;
+  }
+  .content-text p {
+    line-height: 1.6;
+    font-size: 1.05rem;
+  }
+  .content-section.reverse {
+    flex-direction: row-reverse;
+  }
+  .team-section {
+    max-width: 900px;
+    margin: 80px auto 120px;
+    text-align: center;
+    background-color: #122e22;
+    padding: 40px 30px;
+    border-radius: 14px;
+    box-shadow: 0 0 22px rgba(0, 255, 136, 0.15);
+  }
+  .team-section h2 {
+    margin-bottom: 8px;
+    color: #a1ffce;
+    text-shadow: 0 0 6px #00ff88bb;
+  }
+  .team-section h3 {
+    margin-top: 0;
+    margin-bottom: 35px;
+    font-weight: normal;
+    color: #82d8b7;
+  }
+  .profile-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .profile {
+    width: 160px;
+    cursor: default;
+  }
+  .profile img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 12px #00ff8855;
+    transition: transform 0.3s ease;
+    display: block;
+    margin: auto;
+  }
+  .profile:hover img {
+    transform: scale(1.05);
+  }
+  .profile-name {
+    margin-top: 12px;
+    font-weight: bold;
+    color: #d9ffe1;
+    text-align: center;
+    text-shadow: 0 0 3px #007f53;
+    font-size: 1rem;
+  }
+  .pricing-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 30px 25px;
+    text-align: center;
+    background-color: #122e22;
+    border-radius: 14px;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.12);
+  }
+  .pricing-section h2 {
+    margin-bottom: 6px;
+    color: #a1ffce;
+    text-shadow: 0 0 5px #00ff88aa;
+  }
+  .pricing-section h3 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #82d8b7;
+    font-weight: normal;
+  }
+  .card-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .card {
+    background-color: #ffde59;
+    color: #222;
+    padding: 24px 25px;
+    border-radius: 14px;
+    box-shadow: 0 6px 12px rgba(255, 222, 89, 0.3);
+    flex: 1 1 280px;
+    max-width: 300px;
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+  }
+  .card:hover {
+    box-shadow: 0 8px 25px rgba(255, 222, 89, 0.6);
+  }
+  .card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
+  .card ul {
+    padding-left: 22px;
+    margin: 0;
+  }
+  .card ul li {
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .faq-section {
+    max-width: 900px;
+    margin: 80px auto 120px;
+    background-color: #122e22;
+    border-radius: 14px;
+    padding: 40px 30px;
+    color: white;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.15);
+  }
+  .faq-section h2 {
+    text-align: center;
+    margin-bottom: 6px;
+    color: #a1ffce;
+    text-shadow: 0 0 5px #00ff88aa;
+  }
+  .faq-section h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 38px;
+    color: #82d8b7;
+    font-weight: normal;
+  }
+  .faq-list {
+    max-width: 800px;
+    margin: auto;
+  }
+  .faq-item {
+    padding: 18px 0;
+    border-bottom: 1px solid #00ff8840;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+  }
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+  .faq-item:hover {
+    background-color: #003d22;
+  }
+  .faq-item h3 {
+    margin: 0 0 8px;
+    color: #00ff88;
+    user-select: none;
+  }
+  .faq-item p {
+    margin: 0 0 0 10px;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .contact-section {
+    display: flex;
+    max-width: 900px;
+    margin: 80px auto 80px;
+    gap: 35px;
+    padding: 30px 25px;
+    background-color: #122e22;
+    border-radius: 14px;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.12);
+  }
+  .contact-section > div {
+    flex: 1;
+  }
+  .contact-section h2 {
+    margin-top: 0;
+    color: #a1ffce;
+    text-shadow: 0 0 5px #00ff88aa;
+  }
+  .contact-section p {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .contact-section a {
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .contact-section a:hover {
+    text-decoration: underline;
+  }
+  .contact-section iframe {
+    border-radius: 14px;
+    border: 0;
+    width: 100%;
+    height: 260px;
+  }
+  footer {
+    background-color: #0b2418;
+    color: white;
+    text-align: center;
+    padding: 18px 12px;
+    margin-top: 60px;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+  @media(max-width: 768px) {
+    .content-section,
+    .content-section.reverse {
+      flex-direction: column;
+    }
+    .content-section img, .content-text {
+      width: 100%;
+    }
+    .grid-container {
+      grid-template-columns: 1fr;
+      padding-bottom: 50px;
+    }
+    .profile-grid {
+      flex-direction: column;
+      gap: 25px;
+    }
+    .card-container {
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+    }
+    .contact-section {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#home">Ana Sayfa</a></li>
+    <li><a href="#about">Hakkımızda</a></li>
+    <li><a href="#contact">İletişim</a></li>
+    <li><a href="#team">Takım</a></li>
+    <li><a href="#pricing">Ücretlendirme</a></li>
+    <li><a href="#faq">SSS</a></li>
+  </ul>
+</nav>
+
+<section id="home" class="hero" tabindex="0" aria-label="Ana Sayfa Girişi">
+  <h1>İnsana Yakışır İş ve Sürdürülebilir Ekonomik Büyüme</h1>
+  <p>Yapay zeka destekli kişisel gelişim ve kariyer platformumuzla, Kayseri’de iş gücünü güçlendiriyoruz.</p>
+  <a href="#about" class="btn">Kariyerine Başla</a>
+</section>
+
+<div class="grid-container" aria-label="Öne çıkan görseller">
+  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="İş ortamı">
+  <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Kariyer">
+  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Teknoloji">
+</div>
+
+<section id="about" class="about" tabindex="0" aria-label="Hakkımızda Bölümü">
+  <h2>Hakkımızda</h2>
+  <p>
+    Kariyer Platformu, bireylerin kişisel ve profesyonel potansiyellerini açığa çıkararak onları doğru iş ve gelişim fırsatlarıyla buluşturmayı amaçlayan yapay zeka destekli bir platformdur.
+  </p>
+  <p>
+    Platformumuz, kullanıcıların yeteneklerini ve becerilerini derinlemesine analiz ederek, onların güçlü yönlerini keşfetmelerine ve gelişim alanlarını net şekilde görmelerine olanak sağlar. Böylece kullanıcılar, kariyer yolculuklarında daha bilinçli ve etkili adımlar atabilir.
+  </p>
+  <p>
+    Kayseri ve çevresindeki KOBİ’ler ile iş arayanları yapay zeka tabanlı algoritmalarla eşleştirerek, yerel iş gücünün verimliliğini artırıyoruz. Bu sayede hem bireylerin kariyer gelişimi desteklenir hem de işletmeler ihtiyaç duydukları nitelikli insan kaynağına hızlıca ulaşır.
+  </p>
+  <p>
+    Platformumuz, gizlilik ve güvenlik standartlarına büyük önem vererek, kullanıcıların verilerini korur ve şeffaf bir şekilde yönetir. Yenilikçi yapay zeka teknolojileri ile sürekli gelişen sistemimiz, Türkiye'nin gelecekteki iş gücü piyasasına değer katmayı hedeflemektedir.
+  </p>
+</section>
+
+<section class="content-section">
+  <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=800&q=80" alt="Kişisel Gelişim" tabindex="0">
+  <div class="content-text">
+    <h2>Kişisel Gelişim</h2>
+    <p>
+      Yapay zeka destekli platformumuz, kullanıcıların kişisel becerilerini derinlemesine analiz eder ve gelişim alanlarını detaylı şekilde raporlar. Kullanıcılar, bu sayede güçlü yönlerini pekiştirirken, eksiklerini etkin şekilde tamamlayabilirler.
+      Kişisel gelişim süreçleri takip edilir, öneriler ve eğitim fırsatları sunulur. Böylece kariyerlerinde daha hızlı, bilinçli ve etkili ilerlemeleri mümkün olur.
+    </p>
+  </div>
+</section>
+
+<section class="content-section reverse">
+  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Yerel Kariyer Fırsatları" tabindex="0">
+  <div class="content-text">
+    <h2>Yerel Kariyer Fırsatları</h2>
+    <p>
+      Platformumuz, Kayseri ve çevresindeki KOBİ'ler ile iş arayanları yapay zeka destekli algoritmalarla eşleştirir. Doğru insan doğru işe, doğru zamanda buluşur. Böylece iş gücü piyasası daha etkin çalışır, işletmeler ihtiyaç duydukları yeteneklere hızla ulaşır.
+    </p>
+  </div>
+</section>
+
+<section id="team" class="team-section" tabindex="0" aria-label="Takımımız Bölümü">
+  <h2>Takımımız</h2>
+  <h3>Uzmanlar ve Geliştiriciler</h3>
+  <div class="profile-grid">
+    <div class="profile">
+      <img src="tu.jpeg" alt="tuna" />
+      <div class="profile-name">Fatmanur</div>
+    </div>
+    <div class="profile">
+      <img src="download.jpg" alt="Ali" />
+      <div class="profile-name">Ali</div>
+    </div>
+    <div class="profile">
+      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ayşe" />
+      <div class="profile-name">Ayşe</div>
+    </div>
+    <div class="profile">
+      <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Mehmet" />
+      <div class="profile-name">Mehmet</div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing-section" tabindex="0" aria-label="Ücretlendirme Bölümü">
+  <h2>Ücretlendirme Planlarımız</h2>
+  <h3>İhtiyacınıza uygun seçenekler</h3>
+  <div class="card-container" role="list">
+    <div class="card" role="listitem" tabindex="0" aria-label="Temel Plan - Aylık 99 TL">
+      <h2>Temel Plan</h2>
+      <ul>
+        <li>Kişisel gelişim analizi</li>
+        <li>Yapay zeka destekli öneriler</li>
+        <li>Temel eğitim içerikleri</li>
+        <li>Aylık 99 TL</li>
+      </ul>
+    </div>
+    <div class="card" role="listitem" tabindex="0" aria-label="Profesyonel Plan - Aylık 199 TL">
+      <h2>Profesyonel Plan</h2>
+      <ul>
+        <li>Tüm temel plan özellikleri</li>
+        <li>Özel mentor desteği</li>
+        <li>İleri seviye eğitim içerikleri</li>
+        <li>Yerel iş ilanlarına öncelikli erişim</li>
+        <li>Aylık 199 TL</li>
+      </ul>
+    </div>
+    <div class="card" role="listitem" tabindex="0" aria-label="Kurumsal Plan - Aylık 399 TL">
+      <h2>Kurumsal Plan</h2>
+      <ul>
+        <li>Tüm profesyonel plan özellikleri</li>
+        <li>Şirket içi özel analiz ve raporlama</li>
+        <li>Toplu kullanıcı yönetimi</li>
+        <li>Özel destek hattı</li>
+        <li>Aylık 399 TL</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq-section" tabindex="0" aria-label="Sıkça Sorulan Sorular">
+  <h2>SSS - Sıkça Sorulan Sorular</h2>
+  <h3>Kariyer Platformu hakkında merak ettikleriniz</h3>
+  <div class="faq-list">
+    <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq1" role="button">
+      <h3>Platform nasıl çalışıyor?</h3>
+      <p id="faq1">Kullanıcıların becerileri ve yetkinlikleri yapay zeka algoritmaları ile analiz edilerek, onlara en uygun kariyer ve gelişim önerileri sunulur.</p>
+    </div>
+    <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq2" role="button">
+      <h3>Gizlilik politikası nedir?</h3>
+      <p id="faq2">Kişisel verileriniz gizlilik politikamız kapsamında korunur ve üçüncü taraflarla paylaşılmaz. Verileriniz sadece hizmet kalitesini artırmak için kullanılır.</p>
+    </div>
+    <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq3" role="button">
+      <h3>Nasıl iletişim kurabilirim?</h3>
+      <p id="faq3">Sayfa altındaki iletişim bölümünden e-posta veya telefon yoluyla bize ulaşabilirsiniz.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section" tabindex="0" aria-label="İletişim Bölümü">
+  <div>
+    <h2>İletişim</h2>
+    <p>E-posta: <a href="mailto:tunac7100@gmail.com">tunac7100@gmail.com</a></p>
+    <p>Telefon: <a href="tel:+905424870966">+90 542 487 09 66</a></p>
+    <p>Adres: Abdullah Gül Üniversitesi, Kayseri, Türkiye</p>
+  </div>
+  <div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1556.078853965198!2d35.47218216176947!3d38.73714307804097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152b118c82226a79%3A0x9e5486f83ee76d46!2sAbdullah%20G%C3%BCl%20%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1754999253836!5m2!1str!2str"
+      width="100%" height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Abdullah Gül Üniversitesi Haritası"
+    ></iframe>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Kariyer Platformu - Tüm Hakları Saklıdır.
+</footer>
+
+</body>
+</html>
