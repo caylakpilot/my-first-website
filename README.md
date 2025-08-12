@@ -1,70 +1,52 @@
-# CarbonMind AI – Akıllı Karbon Ayak İzi Hesaplama Sitesi
 
-## Proje Hakkında
+# Yapay Zeka Destekli Kişisel Gelişim ve Kariyer Platformu
 
-Merhaba! Ben bir lise öğrencisiyim ve bu proje, **Karbon Ayak İzini** ölçüp, azaltmak isteyen herkes için tasarlanmış bir web sitesi.  
-Amacım, iklim değişikliği gibi büyük bir soruna karşı **bireysel olarak ne yapabileceğimizi göstermek** ve insanları bu konuda bilinçlendirmek.
+Bu proje, Türkiye’de bireylerin yetkinliklerini ve ilgi alanlarını yapay zekâ ile analiz ederek, kişiye özel gelişim planları sunan ve yerel iş/staj fırsatlarıyla eşleştiren yenilikçi bir web platformudur. Amaç, bireysel gelişim yoluyla bölgesel kalkınmayı desteklemek ve Türkiye’de sanayi ve iş yerlerinin büyümesini hızlandırmaktır.
 
 ---
 
-## Neden Böyle Bir Şey Yaptım?
+## Proje Amacı
 
-Dünya ısınıyor, buzullar eriyor ve iklim değişikliği hepimizi etkiliyor. Ama çoğumuz günlük hayatımızda karbon ayak izimizi bilmiyoruz.  
-Yaptığımız küçük alışkanlıklar (örneğin, arabayla kısa mesafeye gitmek, çok elektrik kullanmak) aslında doğaya zarar veriyor.  
-Ben de bunun farkına varmak ve çözüm bulmak için bu projeyi yaptım.
+Türkiye’de insanların çoğunlukla yaşadıkları yerde kalmaları ve kendilerini geliştirememeleri, hem bireysel hem toplumsal kalkınmayı engelleyen önemli bir sorundur. Bu proje ile;
 
----
+* Bireylerin eğitim, beceri ve kariyer gelişimini desteklemek,
+* Yapay zekâ destekli kişisel gelişim ve kariyer mentoru sağlamak,
+* Bölgesel iş ve staj fırsatlarına erişimi artırmak,
+* KOBİ’lerin nitelikli iş gücüne ulaşmasını kolaylaştırmak,
+* Böylece beyin göçünü azaltarak bölgesel ekonomilerin büyümesini sağlamak
 
-## Bu Site Ne Yapıyor?
-
-- Sana birkaç kolay soru soruyor: Evde nasıl enerji kullanıyorsun? Ulaşım için ne kullanıyorsun? Hangi yiyecekleri tercih ediyorsun?  
-- Cevaplarına göre yapay zekâ destekli bir hesaplama yapıyor ve karbon ayak izini gösteriyor.  
-- Sonra da senin için pratik ve gerçekçi öneriler sunuyor. Mesela, "Günde bir gün bisiklete binmeyi dene!" gibi.  
-- Böylece hem kendin için hem de dünya için küçük ama önemli adımlar atabilirsin.
+hedeflenmektedir.
 
 ---
 
-## Yapay Zekâ Bu Projede Nasıl Kullanılıyor?
+## Çözümün Özellikleri
 
-Burada basit bir yapay zekâ var:  
-- Verdiğin cevapları analiz ediyor,  
-- Bu verilerle karbon salınımını hesaplıyor,  
-- Sonra sana uygun öneriler üretiyor.  
+* **Yapay Zekâ Destekli Yetkinlik Analizi:** Kullanıcıların eğitim, deneyim ve ilgi verilerini analiz ederek güçlü ve gelişmesi gereken yönlerini belirler.
+* **Kişiselleştirilmiş Gelişim Planları:** AI destekli önerilerle, kullanıcının ihtiyacına göre eğitim içerikleri, kurslar ve sertifika programları önerir.
+* **Yerel İş ve Staj İlanları:** Bölgedeki işletmelerin güncel iş/staj fırsatlarını listeleyerek uygun adaylara yönlendirir.
+* **AI Mentoru:** Kariyer yolunda kullanıcıya rehberlik eden, sorularını yanıtlayan yapay zekâ destekli chatbot.
+* **İşveren Paneli:** İşverenler platformda kendilerine uygun yetenekleri kolayca bulabilir, çalışanların gelişimini takip edebilir.
+* **Eğitim ve Bilinçlendirme Modülleri:** Kullanıcıların dijital ve mesleki becerilerini artırmaya yönelik eğitim içerikleri.
 
-Yani, sadece düz hesaplama değil, aynı zamanda alışkanlıklarına göre özel tavsiyeler alıyorsun.
-
----
-
-## Neden Bu Projeyi Yapıyorum?
-
-- İnsanların çevreye olan etkilerini anlamalarını istiyorum.  
-- Teknolojinin ve yapay zekânın bu konuda nasıl yardımcı olabileceğini göstermek istiyorum.  
-- Kendi jenerasyonumun iklim sorunlarına duyarlı olmasını sağlamak istiyorum.
 
 ---
 
-## Teknolojiler
+## Nasıl Katkı Sağlar?
 
-- HTML ile web sitesi yapıldı.  
-- Basit yapay zekâ hesaplama algoritması kullanıldı.  
-- Grafiklerle sonuçlar görselleştirildi.
-
----
-
-## Katkıda Bulunmak İster misin?
-
-Bu proje açık kaynak ve herkesin katkısına açık.  
-Kodlama biliyorsan ya da sadece fikir vermek istiyorsan, çekinmeden katkıda bulunabilirsin!
+* **Bireyler**: Kendi yeteneklerini keşfeder, gelişim için yönlendirilir, iş/staj imkanlarına erişir.
+* **KOBİ’ler**: Doğru yeteneklere hızlı erişim sağlar, çalışan gelişimini destekler.
+* **Toplum**: Bölgesel kalkınma hızlanır, beyin göçü azalır, ekonomik büyüme desteklenir.
 
 ---
 
 ## İletişim
 
-Projeyle ilgili soruların olursa bana tunac7100@gmail.com üzerinden ulaşabilirsin.
+Her türlü soru, öneri ve iş birliği için:
+E-posta: tunac7100@gmail.com
 
----
 
-**Hadi birlikte dünyamızı daha yaşanılır hale getirelim! 🌍💪**
+
+
 
 
 
